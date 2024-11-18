@@ -57,6 +57,7 @@ Para executar os workflow CI criado é necessário gerar um token no SonarCloud 
 
 * [Cypress](https://www.cypress.io/) - Biblioteca para automatização WEB
 * [NodeJS](https://nodejs.org/pt) - Ambiente de execução de JavaScript
+* [dotenv](https://www.npmjs.com/package/dotenv) - Boas praticas para separar dados sensíveis do projeto
 
 ## 📌 Versão
 
