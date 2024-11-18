@@ -26,7 +26,7 @@ jobs:
           publish-summary: false
         env:
           CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASE_URL }}
-          CYPRESS_USER: ${{ secrets.CYPRESS_USER }}
+          CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
           CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
 
       - name: SonarCloud Scan
