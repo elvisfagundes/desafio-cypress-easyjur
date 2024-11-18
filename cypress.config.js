@@ -12,7 +12,6 @@ module.exports = defineConfig({
     },
   },
   e2e: {
-    baseUrl: process.env.CYPRESS_BASE_URL,
     viewportWidth: 1920,
     viewportHeight: 1080,
     requestTimeout: 30000,
@@ -25,6 +24,7 @@ module.exports = defineConfig({
     },
   },
   env: {
+    baseUrl: process.env.CYPRESS_BASE_URL,
     username: process.env.CYPRESS_USERNAME,
     password: process.env.CYPRESS_PASSWORD
   },
