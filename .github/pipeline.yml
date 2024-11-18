@@ -1,0 +1,39 @@
+name: Continuous Integration
+
+on: push
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Nods.js envoironment
+        uses: actions/setup-node@v4.1.0
+        with:
+          node-version: 20.17.0
+          
+      - name: Install dependencies 
+        run: |
+          npm install --save-dev cypress-ctrf-json-reporter
+          npm install github-actions-ctrf
+          npm install dotenv --save-dev
+          
+      - name: E2E Testes
+        uses: cypress-io/github-action@v6.5.0 
+        with:
+          publish-summary: false
+        env:
+          CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASE_URL }}
+          CYPRESS_USER: ${{ secrets.CYPRESS_USER }}
+          CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v3.1.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
+      - name: Publish CTRF Test Summary Results
+        run: npx github-actions-ctrf summary ctrf/ctrf-report.json
+        if: always()
