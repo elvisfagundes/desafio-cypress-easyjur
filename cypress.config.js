@@ -6,11 +6,7 @@ const path = require('path')
 dotenv.config({ path: path.join(__dirname, './.env') })
 
 module.exports = defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-  },
+
   e2e: {
     viewportWidth: 1920,
     viewportHeight: 1080,
